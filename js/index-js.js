@@ -22,6 +22,7 @@ $(function(){
 	var upTimer=null;
 	
 	var oDown=document.getElementById('down');  //向下箭头
+	var bWord=true;
 	
 	var oHeader1=document.getElementById('header1');  //首屏标题
 	var aNav=getByClass(oHeader1,'scroll');
@@ -84,6 +85,7 @@ $(function(){
 		{
 			oDown.style.display='none';	
 			show();
+			bWord=false;
 		}else
 		{
 			oDown.style.display='block';	
@@ -621,7 +623,7 @@ $(function(){
 			document.body.scrollTop=cur;
 			document.documentElement.scrollTop=cur;
 			
-			if(n==count)
+			if(n>=count)
 			{
 				clearInterval(timer);		
 			}	
@@ -683,7 +685,7 @@ $(function(){
 			var timer=setInterval(function(){
 				(function(index){
 					move(aI[m],{opacity:1},{duration:300,complete:function(){
-						if(index==aI.length-2)
+						if(index>=aI.length-2)
 						{
 							clearInterval(timer);
 							for(var i=0;i<aI.length;i++)
@@ -715,7 +717,7 @@ $(function(){
 				document.body.scrollTop=cur;
 				document.documentElement.scrollTop=cur;
 				
-				if (n == count)
+				if (n >= count)
 				{
 					clearInterval(upTimer);
 				}
@@ -751,15 +753,22 @@ $(function(){
 		aSpan.push(oSpan1);
 		win.show=function(){
 			//alert(1);
-			var n=-1;
-			timer=setInterval(function(){
-				n++;
-				move(aSpan[n],{opacity:1});
-				if(n==aSpan.length-1)
-				{//alert(1)
-					clearInterval(timer);	
-				}	
-			},30);		
+			
+			if(bWord)
+			{
+				var n=-1;
+				timer=setInterval(function(){
+					n++;
+					move(aSpan[n],{opacity:1});
+					if(n>=aSpan.length-1)
+					{//alert(1)
+						clearInterval(timer);	
+					}	
+				},30);
+				//bShow=false;			
+			}
+			
+			
 		}
 	})(window);
 	
