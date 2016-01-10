@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AboutH5/CSS3</title>
+		<link rel="icon" href="images/xIAlLZutYOaajDj.jpg"/>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/h5-css.css" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<script src="js/h5-js.js"></script>
+		<script src="js/swiper.min.js"></script>
+	</head>
+	<body>
+		<div class="swiper-container aa">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide f-box">
+	        	<div class="first animated hinge"></div>
+	        	<div class="text">
+	        		H5旅程 从这里开始
+	        	</div>
+	        </div>
+	        <div class="swiper-slide">
+	        	<div class="page2">
+	        		<input type="button" value="←" id="prev"/>
+				    <input type="button" value="→" id="next"/>
+					<ul class="nav">
+						<li class="l2">
+							<span></span>
+							<img src="images/h5/a1.jpg" alt="" />
+						</li>
+						<li class="l1">
+							<span></span>
+							<img src="images/h5/a2.jpg" alt="" />
+						</li>
+						<li class="cur">
+							<span></span>
+							<img src="images/h5/a3.jpg" alt="" />
+						</li>
+						<li class="r1">
+							<span></span>
+							<img src="images/h5/a4.jpg" alt="" />
+						</li>
+						<li class="r2">
+							<span></span>
+							<img src="images/h5/a5.jpg" alt="" />
+						</li>
+						<li>
+							<span></span>
+							<img src="images/h5/a6.jpg" alt="" />
+						</li>
+						<li>
+							<span></span>
+							<img src="images/h5/a7.jpg" alt="" />
+						</li>
+						<li>
+							<span></span>
+							<img src="images/h5/a8.jpg" alt="" />
+						</li>
+					</ul>	
+	        	</div>
+	        	
+	        </div>
+	        <div class="swiper-slide page3">
+	        	<div class="page3-p">点击图片查看效果</div>
+	        	<div class="l-box"></div>
+	        </div>
+	        <div class="swiper-slide page4" style="background: #b8ff78">
+	        	<div class="bird"></div>
+	        	<div class="page4-p">移动端布局</div>
+	        	<nav class="clearfix">
+	        		<a href="javascript:;">携程</a>
+	        		<a href="javascript:;">京东</a>
+	        		<a href="javascript:;">果壳</a>
+	        		<a href="javascript:;">gulp</a>
+	        		<a href="javascript:;">聚划算</a>
+	        		<a href="javascript:;">某手机页面</a>
+	        	</nav>
+	        </div>
+	    </div>
+	
+	    <div class="swiper-pagination"></div>
+</div>
+		
+	</body>
+	<script>
+    new Swiper('.swiper-container',{
+        direction:'vertical',
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        mousewheelControl: true,
+        keyboardControl:true
+    });
+   
+	</script>
+</html>

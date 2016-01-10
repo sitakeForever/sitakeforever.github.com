@@ -112,7 +112,10 @@ $(function(){
 	//网页作品跳转
 	;(function(){
 		var aLi=oWork.getElementsByTagName('li');
-		var arr=['otherWeb/aiqiyi/index.html','otherWeb/soul/index.html','otherWeb/OPPO/index.html','otherWeb/taobao/index.html','otherWeb/360/index.html','otherWeb/meituan/index.html','otherWeb/carTrade/index.html','otherWeb/jd/index.html'];
+		var arr=['otherWeb/aiqiyi/index.html','otherWeb/soul/index.html',
+		'otherWeb/OPPO/index.html','otherWeb/photo/index.html',
+		'otherWeb/360/index.html','otherWeb/meituan/index.html',
+		'otherWeb/music/daBangDongTai.html','otherWeb/jd/index.html'];
 		for(var i=0;i<aLi.length;i++)
 		{
 			(function(index){
@@ -237,6 +240,67 @@ $(function(){
 			};	
 		}
 		
+		function collTest(obj1,obj2)
+		{
+			//obj1
+			var l1=obj1.offsetLeft;
+			var r1=l1+obj1.offsetWidth;
+			var t1=obj1.offsetTop;
+			var b1=t1+obj1.offsetHeight;
+			//obj2
+			var l2=obj2.offsetLeft;
+			var r2=l2+obj2.offsetWidth;
+			var t2=obj2.offsetTop;
+			var b2=t2+obj2.offsetHeight;
+			if(r1<l2||b1<t2||l1>r2||t1>b2)
+			{
+				return false;
+			}else
+			{
+				return true;	
+			}	
+		}
+		
+		function findNear(obj)
+		{
+			var nMin=9999999;
+			var nMinIndex=-1;
+			//碰撞检测  在碰上的里面找最小
+			for(var i=0;i<aLi.length;i++)
+			{
+				if(obj!=aLi[i])  //不是自己
+				{
+					if(collTest(obj,aLi[i]))
+					{
+						//碰上了
+						var dis=getDis(obj,aLi[i]);
+						if(dis<nMin)
+						{
+							nMin=dis;
+							nMinIndex=i;	
+						}	
+					}	
+				}	
+			}	
+			
+			if(nMinIndex==-1)
+			{
+				return null;	
+			}else
+			{
+				return aLi[nMinIndex];	
+			}	
+		}
+		
+		function getDis(obj1,obj2)
+		{
+			var a=(obj1.offsetLeft+obj1.offsetWidth/2)-(obj2.offsetLeft+obj2.offsetWidth/2);
+			var b=(obj1.offsetTop-obj1.offsetHeight/2)-(obj2.offsetTop-obj2.offsetHeight/2);
+			var dis=Math.sqrt(a*a+b*b);
+			return dis;
+		}
+	})();
+	
 		//选项卡
 		
 		;(function(){
@@ -252,15 +316,23 @@ $(function(){
 			oList.innerHTML+=oList.innerHTML;
 			oList.style.width=oList.offsetWidth*2+'px';
 			//
-			/*for(var i=0;i<aBtn.length;i++)
+			for(var i=0;i<aBtn.length;i++)
 			{
 				(function(index){
 					aBtn[i].onmouseover=function(){
-						n=index;
-						tick();
+						m=n=index;
+						
+						for(var i=0;i<aBtn.length;i++)
+						{
+							aBtn[i].className='';	
+						}
+						aBtn[n].className='active';
+						oList.style.left=-index*w1+'px';
+						oList.style.opacity=0.1;
+						move(oList,{opacity:1},{duration:1000});
 					};	
 				})(i);
-			}*/
+			}
 			
 			//向右
 			var oR=getByClass(oCard,'right')[0];
@@ -381,81 +453,8 @@ $(function(){
 				move(oList,{left:-m*w1},{duration:500});		
 			}
 			
-			/*//分块运动
-			
-			
-			win.start=function()
-			{
-				
-				
-			}*/
 			
 		})();
-		
-		
-		
-		function collTest(obj1,obj2)
-		{
-			//obj1
-			var l1=obj1.offsetLeft;
-			var r1=l1+obj1.offsetWidth;
-			var t1=obj1.offsetTop;
-			var b1=t1+obj1.offsetHeight;
-			//obj2
-			var l2=obj2.offsetLeft;
-			var r2=l2+obj2.offsetWidth;
-			var t2=obj2.offsetTop;
-			var b2=t2+obj2.offsetHeight;
-			if(r1<l2||b1<t2||l1>r2||t1>b2)
-			{
-				return false;
-			}else
-			{
-				return true;	
-			}	
-		}
-		
-		function findNear(obj)
-		{
-			var nMin=9999999;
-			var nMinIndex=-1;
-			//碰撞检测  在碰上的里面找最小
-			for(var i=0;i<aLi.length;i++)
-			{
-				if(obj!=aLi[i])  //不是自己
-				{
-					if(collTest(obj,aLi[i]))
-					{
-						//碰上了
-						var dis=getDis(obj,aLi[i]);
-						if(dis<nMin)
-						{
-							nMin=dis;
-							nMinIndex=i;	
-						}	
-					}	
-				}	
-			}	
-			
-			if(nMinIndex==-1)
-			{
-				return null;	
-			}else
-			{
-				return aLi[nMinIndex];	
-			}	
-		}
-		
-		function getDis(obj1,obj2)
-		{
-			var a=(obj1.offsetLeft+obj1.offsetWidth/2)-(obj2.offsetLeft+obj2.offsetWidth/2);
-			var b=(obj1.offsetTop-obj1.offsetHeight/2)-(obj2.offsetTop-obj2.offsetHeight/2);
-			var dis=Math.sqrt(a*a+b*b);
-			return dis;
-		}
-	})();
-	
-	
 	//弹性运动
 	;(function(win){
 		//布局转换
@@ -488,7 +487,7 @@ $(function(){
 				window.open('video.html','_black');	
 			};		
 			aJumpDiv[2].onclick=function(){
-				window.open('resume.html','_black');	
+				window.open('h5.html','_black');	
 			};
 		
 			

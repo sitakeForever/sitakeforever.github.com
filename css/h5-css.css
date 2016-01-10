@@ -1,0 +1,170 @@
+/*关于H5和CSS3*/
+html,body{
+	height: 100%;
+	overflow: hidden; 
+}
+body{
+	/*background:url(../images/ddf.jpg);*/
+}
+.swiper-container
+{
+    width:100%;
+    height:100%;
+}
+.f-box{
+	background:url(../images/ddf.jpg) no-repeat;
+	background-size:cover;
+}
+.first{
+	width:225px;
+	height: 202.5px;
+	background:url(../images/d231.jpg) no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 50%;
+}
+.text{
+	width:100%;
+	text-align: center;
+	font-size: 80px;
+	line-height: 80px;
+	position: absolute;
+	top: 40%;
+	color: #009962;
+	text-shadow: 10px 10px 10px #000;
+}
+
+.l-box{ 
+		width: 700px;
+		height: 400px;
+		margin: 50px auto;
+		background: url(../images/h5/1.jpg) no-repeat;
+		position: relative;
+	 }
+ .l-box span{
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	background: url(../images/h5/0.jpg) no-repeat;
+ 	transition: 1s all ease;
+ 	transform: perspective(800px) translate(0px,0px) rotateX(0deg) rotateY(0deg) ;
+ }
+.page3-p{
+	width:500px;
+	height: 50px;
+	margin: 50px auto;
+	text-align: center;
+	line-height: 50px;
+	font-size: 40px;
+}
+
+.page2{
+	width:100%;
+	height: 100%;
+	position: relative;
+	text-align: center;
+	background:#000;
+	background-size:cover;
+}
+.page2 input{ padding: 10px 20px; margin-top: 100px; }
+.nav{ width: 640px; height: 270px; 
+	position: absolute; left: 50%; top: 50%;
+	 margin-left: -320px; margin-top: -135px; }
+.nav>li{ width: 100%; height: 100%; 
+        position: absolute; top: 0; left: 0; 
+ 		opacity: 0;
+
+	perspective:1200px;
+	transform:translateX(0px) rotateY(0deg);
+
+	/*transition: 1s all ease;*/
+	transition-duration:.5s ;
+	transition-property:opacity transform;
+	transition-timing-function: ease;
+	
+	/*-webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1))*/
+	-webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 50%,rgba(0,0,0,1))
+}
+.nav>li img{
+	width:100%;
+	height: 100%;
+}
+ .page2 .l2 span, .page2 .r2 span, .page2 .l1 span,.page2 .r1 span{
+	width:100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	background: #000;
+	opacity: 0.6;
+	transition:.4s all ease;
+}
+.page2 .l2{ transform:perspective(1200px) translateX(-300px) rotateY(10deg); z-index: 1; opacity: 0;}
+.page2 .l1{ transform: perspective(1200px) translateX(-265px)  rotateY(10deg); z-index: 2; opacity: 0.8;}
+.page2 .cur{ width: 640px; height: 270px;  z-index:30; opacity: 1;}
+.page2 .r1{ transform: perspective(1200px) translateX(265px)  rotateY(-10deg); z-index: 2; opacity: 0.8;}
+.page2 .r2{ transform: perspective(1200px) translateX(300px)  rotateY(-10deg); z-index: 1; opacity: 0;}
+
+.page3{
+	background:-webkit-linear-gradient(#065EAB,#fff);
+	
+}
+.page4-p{
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+	color: #fff;
+	line-height: 100px;
+	height: 100px;
+}
+
+.page4 .bird{ 
+	width: 400px; height: 400px; 
+	position: absolute;
+	top: 0;
+	left: 0;
+	background:url("../images/h5/niao.png") no-repeat; 
+	background-size: cover; 
+	-webkit-mask:url("../images/h5/mm1.png");
+	 }
+.page4{
+	/*background:url(../images/h5/f226.jpg) no-repeat;
+	background-size:cover;*/
+}
+.page4 nav{
+	width:510px;
+	float: right;
+	margin-right: 200px;
+	margin-top: 100px;
+}
+.page4 nav a{
+	display: block;
+	float: left;
+	width:150px;
+	height: 150px;
+	background: #009962;
+	margin: 10px;
+	text-align: center;
+	line-height: 150px;
+	color: #fff;
+	font-size: 30px;
+	transition: .4s all ease;
+}
+.page4 nav a:hover{
+	transform: scale(1.1);
+	color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
