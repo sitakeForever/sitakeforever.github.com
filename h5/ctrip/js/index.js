@@ -148,10 +148,6 @@ ready(function(){
 	(function(){
 		var aBtn=document.querySelectorAll('.j-btn');
 		for(var i=0;i<aBtn.length;i++){
-			aBtn[i].addEventListener('click',function(){
-				//alert(1);
-				this.style.WebkitTransform='scale(0.9)';
-			},false);
 			aBtn[i].addEventListener('touchstart',function(){
 				this.style.WebkitTransform='scale(0.9)';
 				var _this=this;
