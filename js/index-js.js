@@ -4,7 +4,8 @@
 $(function(){
 	//$('.down')
 	//向下滚动(第一屏到第二屏)
-	
+	var screenH=$(window).height(); //屏幕高度
+	//console.log(screenH);
 	var oWork=document.getElementById('work');
 	
 	var toBig=document.getElementById('tobig');
@@ -28,15 +29,15 @@ $(function(){
 	var aNav=getByClass(oHeader1,'scroll');
 
 	aNav[1].onclick=function(){
-		toScroll(700,1000);	
+		toScroll(screenH,1000);	
 	};
 	aNav[2].onclick=function(){
-		toScroll(2800,2000);	
+		toScroll(4*screenH,2000);	
 	};
 	
 	oDown.onclick=function(){
 		var oScrollTop=document.documentElement.scrollTop||document.body.scrollTop;
-		toScroll(oScrollTop+700,1000);		
+		toScroll(oScrollTop+screenH,1000);		
 	};
 	oUp.onclick=function(){
 		moveScroll(0,3000);	
@@ -47,7 +48,7 @@ $(function(){
 		//document.title=oScrollTop;    //测试
 		
 		//淡入淡出+向上=向上飘入（第一部分个人作品）
-		if(oScrollTop>=450)
+		if(oScrollTop>=screenH/2+100)
 		{
 			move(oWork,{opacity:1,top:0},{duration:800});	
 		}
@@ -61,19 +62,19 @@ $(function(){
 		}
 		
 		//
-		if(bStart&&oScrollTop>=1600)
+		if(bStart&&oScrollTop>=2*screenH+200)
 		{
 			start();
 			bStart=false;	
 		}
 		
-		if(bJump&&oScrollTop>=2400)
+		if(bJump&&oScrollTop>=4*screenH)
 		{
 			jump();
 			bJump=false;	
 		}
 		
-		if(oScrollTop>700)
+		if(oScrollTop>screenH)
 		{
 			oUp.style.display='block';	
 		}else
@@ -81,7 +82,7 @@ $(function(){
 			oUp.style.display='none';	
 		}
 		
-		if(oScrollTop>2900)
+		if(oScrollTop>4*screenH)
 		{
 			oDown.style.display='none';	
 			show();
@@ -99,7 +100,13 @@ $(function(){
 		userScroll=true;
 	
 	}
-	
+	/* Date:2016-7-18
+	   Author:杨丽娟
+	   objective:自适应一屏的高度
+	*/
+	;(function(){
+		$('.header1,.workPage,.show,._card,.jump').height(screenH);
+	})();
 	
 	//拉勾网效果
 	
@@ -773,28 +780,17 @@ $(function(){
 	
 		//win.show();
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 });
 
-    function getPos(obj)       //（获得到页面左和到页面顶部的距离）
-        {
-            var left=0;
-            var top=0;
-            while(obj)
-            {
-                left+=obj.offsetLeft;
-                top+=obj.offsetTop;
-                obj=obj.offsetParent;        
-            }
-            return {left:left,top:top};    
-        }
+function getPos(obj)       //（获得到页面左和到页面顶部的距离）
+{
+	var left=0;
+	var top=0;
+	while(obj)
+	{
+		left+=obj.offsetLeft;
+		top+=obj.offsetTop;
+		obj=obj.offsetParent;        
+	}
+	return {left:left,top:top};    
+}
