@@ -42,7 +42,7 @@
 
 /*选项卡*/
 ._card{ position:relative; min-height:700px;}
-._card .tit{ height:140px; position:relative; margin-bottom:30px; overflow:hidden; background:#c6e7e7;}
+._card .tit{ height:140px; position:relative; margin-bottom:30px; overflow:hidden;}
 ._card .tit img{ display:none; width:100%;}
 ._card .tit i{ position:absolute; background:url(../images/tit4.png) no-repeat 0 0; opacity:0; filter:alpha(opacity:0);}
 .card{ width:1000px; margin:0 auto;}
